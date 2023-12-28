@@ -2,9 +2,75 @@
 
 
 <h3>Part C: Customized HTML</h3>
+<p>Prompt:  Customize the HTML user interface for your customer’s application. The user interface should include the shop name, the product names, and the names of the parts.</p>
 <ul>
-    <li>File name, line numbers
-        <ul><li>Changes changes</li></ul>
+    <li>mainscreen.html
+        <ul>
+        <li>line 14, changed contents of title tag for Shop Name Requirement</li>
+        <li>line 19, changed contents of h1 tag for Shop Name Requirement</li>
+        <li>line 21, changed contents of h2 tag for Parts Name Requirement</li>
+        <li>line 25, changed value attribute of input tag for Parts Name Requirement</li>
+        <li>lines 30-31, changed contents of a tags for Parts Name Requirement</li>
+        <li>line 53, changed contents of h2 tag for Product Name Requirement</li>
+        <li>line 57, changed value attribute of input tag for Product Name Requirement</li>
+        <li>line 67, changed contents of a tag for Product Name Requirement</li>
+        </ul>
+    </li><br/>
+    <li>InhousePartForm.html
+        <ul>
+            <li>line 6, changed contents of title tag for Parts Name Requirement</li>
+            <li>line 10, changed contents of h1 tag for Parts Name Requirement</li>
+        </ul>
+    </li><br/>
+    <li>OutsourcedPartForm.html
+        <ul>
+            <li>line 6, changed contents of title tag for Parts Name Requirement</li>
+            <li>line 10, changed contents of h1 tag for Parts Name Requirement</li>
+        </ul>
+    </li><br/>
+    <li>confirmationaddpart.html
+        <ul>
+            <li>line 10, changed contents of h1 tag for Parts name Requirement</li>
+        </ul>
+    </li><br/>
+    <li>confirmationdeletepart.html
+        <ul>
+            <li>line 10, changed contents of h1 tag for Parts name Requirement</li>
+        </ul>
+    </li><br/>
+    <li>confirmationassocpart.html
+        <ul>
+            <li>line 10, changed contents of h1 tag for Parts name Requirement</li>
+        </ul>
+    </li><br/>
+    <li>productForm.html
+        <ul>
+            <li>line 7, changed contents of title tag for Product name Requirement</li>
+            <li>line 12, changed contents of h1 tag for Product name Requirement</li>
+            <li>line 35, changed contents of h2 tag for Parts name Requirement</li>
+            <li>line 54, changed contents of h2 tag for Parts name Requirement</li>
+        </ul>
+    </li><br/>
+    <li>saveproductscreen.html
+        <ul>
+            <li>line 5, changed contents of title tag for Product name Requirement</li>
+            <li>line 8, changed contents of p tag for Product name Requirement</li>
+        </ul>
+    </li><br/>
+    <li>confirmationaddproduct.html
+        <ul>
+            <li>line 10, changed contents of h1 tag for Product name Requirement</li>
+        </ul>
+    </li><br/>
+    <li>confirmationdeleteproduct.html
+        <ul>
+            <li>line 10, changed contents of h1 tag for Product name Requirement</li>
+        </ul>
+    </li><br/>
+    <li>navigateerror.html
+        <ul>
+            <li>line 8, changed contents of p tag for Product name Requirement and Parts Name Requirement</li>
+        </ul>
     </li>
 </ul>
 
