@@ -165,11 +165,52 @@
     </ul>
     </li>
 </ul>
-
+<hr>
 <h3>Part G: Max and Min Inventory</h3>
+<p>Prompt: Modify the parts to track maximum and minimum inventory by doing the following:</p>
+<ul> 
+    <li>Add additional fields to the part entity for maximum and minimum inventory.</li>
+    <li>Modify the sample inventory to include the maximum and minimum fields.</li>
+    <li>Add to the InhousePartForm and OutsourcedPartForm forms additional text inputs for the inventory so the user can set the maximum and minimum values.</li>
+    <li>Rename the file the persistent storage is saved to.</li>
+    <li>Modify the code to enforce that the inventory is between or at the minimum and maximum value.</li>
+</ul>
+<hr>
 <ul>
-    <li>File name, line numbers
-        <ul><li>Changes changes</li></ul>
+    <li>Modified 'Part.java'
+        <ul>
+        <li>line 21, changed the 'name' parameter taken by the 'Table' annotation in order to rename the file the persistent staorage is saved to</li>
+        <li>lines 31-34, added fields 'minInv' and 'maxInv' along with the validation annotation 'Min' for logical real world values for these fields</li>
+        <li>lines 43, 47-48, 51, 56-57, added the new 'minInv' and 'maxinv' fields to the class constructors, and used the 'this' operator to assign them properly</li>
+        <li>lines 92-98, created getter and setter methods for the new fields 'minInv' and 'maxInv'</li>
+        </ul>
+    </li><br/>
+    <li>Modified 'BootStrapData.java'
+        <ul>
+        <li>lines 52-53, 63-64, 74-75, 85-86, 96-97, added calls to 'setMinInv' and 'setMaxInv' for each part in the stock inventory in order to have starter values for those fields</li>
+        </ul>
+    </li><br/>
+    <li>Modified 'InhousePartForm.html'
+        <ul>
+        <li>lines 25, 28, created new input boxes using the 'input' tag, used thymeleaf's 'th:field' attribute to map these boxes to the 'minInv' and 'maxInv' fields of the 'InHousePart' object being interacted with</li>
+        <li>lines 26, 29, used thymleaf's 'th:error' and 'th:if' attributes to display the error message for when the input is negative for the 'minInv' and 'maxInv' fields</li>
+        </ul>
+    </li><br/>
+    <li>Modified 'OutsourcedPartForm.html'
+        <ul>
+        <li>lines 26, 29, created new input boxes using the 'input' tag, used thymeleaf's 'th:field' attribute to map these boxes to the 'minInv' and 'maxInv' fields of the 'OutsourcedPart' object being interacted with</li>
+        <li>lines 27, 30, used thymleaf's 'th:error' and 'th:if' attributes to display the error message for when the input is negative for the 'minInv' and 'maxInv' fields</li>
+        </ul>
+    </li><br/>
+    <li>Modified 'AddInhousePartController.java'
+        <ul>
+        <li>lines 45-49, added 'else-if' statement that measures weather the 'inv' field value is above the 'maxInv' field or below the 'minInv' field, if either is true the user will not be riderected off of the 'InhousePartForm' page and no updates will be made to the database</li>
+        </ul>
+    </li><br/>
+    <li>Modified 'AddOutsourcedPartController.java'
+        <ul>
+        <li>lines 46-50, added 'else-if' statement that measures weather the 'inv' field value is above the 'maxInv' field or below the 'minInv' field, if either is true the user will not be riderected off of the 'OutsourcedPartForm' page and no updates will be made to the database</li>
+        </ul>
     </li>
 </ul>
 
