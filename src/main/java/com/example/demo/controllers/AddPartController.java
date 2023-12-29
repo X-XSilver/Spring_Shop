@@ -29,6 +29,8 @@ public class AddPartController {
     @GetMapping("/showPartFormForUpdate")
     public String showPartFormForUpdate(@RequestParam("partID") int theId,Model theModel){
 
+        //theModel.addAttribute("rangeCheck", true);
+
         PartService repo=context.getBean(PartServiceImpl.class);
         OutsourcedPartService outsourcedrepo=context.getBean(OutsourcedPartServiceImpl.class);
         InhousePartService inhouserepo=context.getBean(InhousePartServiceImpl.class);
@@ -47,6 +49,7 @@ public class AddPartController {
         else{
             OutsourcedPart outsourcedPart=outsourcedrepo.findById(theId);
             theModel.addAttribute("outsourcedpart",outsourcedPart);
+
             formtype="OutsourcedPartForm";
         }
         return formtype;

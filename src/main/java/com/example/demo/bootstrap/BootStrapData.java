@@ -49,6 +49,8 @@ public class BootStrapData implements CommandLineRunner {
         coverFrontAxle.setInv(20);
         coverFrontAxle.setPrice(10.0);
         coverFrontAxle.setId(100L);
+        coverFrontAxle.setMinInv(10);
+        coverFrontAxle.setMaxInv(40);
         if(outsourcedPartRepository.findByName("Cover Front Axle").isEmpty())
             outsourcedPartRepository.save(coverFrontAxle);
 
@@ -58,6 +60,8 @@ public class BootStrapData implements CommandLineRunner {
         caseFrontGear.setInv(5);
         caseFrontGear.setPrice(40.0);
         caseFrontGear.setId(200L);
+        caseFrontGear.setMinInv(5);
+        caseFrontGear.setMaxInv(20);
         if(outsourcedPartRepository.findByName("Case Front Gear").isEmpty())
             outsourcedPartRepository.save(caseFrontGear);
 
@@ -67,6 +71,8 @@ public class BootStrapData implements CommandLineRunner {
         manifoldExhaust.setInv(15);
         manifoldExhaust.setPrice(12.0);
         manifoldExhaust.setId(300L);
+        manifoldExhaust.setMinInv(10);
+        manifoldExhaust.setMaxInv(30);
         if(inhousePartRepository.findByName("Manifold Exhaust").isEmpty())
             inhousePartRepository.save(manifoldExhaust);
 
@@ -76,6 +82,8 @@ public class BootStrapData implements CommandLineRunner {
         caseHydraulicCylinder.setInv(50);
         caseHydraulicCylinder.setPrice(5.0);
         caseHydraulicCylinder.setId(400L);
+        caseHydraulicCylinder.setMinInv(15);
+        caseHydraulicCylinder.setMaxInv(75);
         if(inhousePartRepository.findByName("Case Hydraulic Cylinder").isEmpty())
             inhousePartRepository.save(caseHydraulicCylinder);
 
@@ -85,6 +93,8 @@ public class BootStrapData implements CommandLineRunner {
         caseBevelGear.setInv(10);
         caseBevelGear.setPrice(40.0);
         caseBevelGear.setId(300L);
+        caseBevelGear.setMinInv(5);
+        caseBevelGear.setMaxInv(25);
         if(inhousePartRepository.findByName("Case Bevel Gear").isEmpty())
             inhousePartRepository.save(caseBevelGear);
 
