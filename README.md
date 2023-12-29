@@ -3,6 +3,7 @@
 
 <h3>Part C: Customized HTML</h3>
 <p>Prompt:  Customize the HTML user interface for your customer’s application. The user interface should include the shop name, the product names, and the names of the parts.</p>
+<hr>
 <ul>
     <li>Modified 'mainscreen.html'
         <ul>
@@ -73,14 +74,15 @@
         </ul>
     </li>
 </ul>
-
+<hr>
 <h3>Part D: About Page</h3>
 <p>Prompt: Add an “About” page to the application to describe your chosen customer’s company to web viewers and include navigation to and from the “About” page and the main screen.</p>
+<hr>
 <ul>
     <li>Created 'about.html'
         <ul>
         <li>all lines, Wrote and formatted, using html, the information about the company</li>
-        <li>lines 38-39, used thymeleaf 'th:href' attribute in 'a' tag to link back to the main screen</li>
+        <li>lines 38-39, added link back to 'mainscreen'</li>
         </ul>
     </li><br/>
     <li>Created 'AboutPageController.java'
@@ -99,14 +101,15 @@
     </li><br/>
     <li>Modified 'mainscreen.html'
     <ul>
-        <li>line 89, added an 'a' tag with the thymeleaf 'th:href' attribute to link to the about page
+        <li>line 89, added link to 'about' page
         </li>
     </ul>
     </li>
 </ul>
-
+<hr>
 <h3>Part E: Sample Inventory</h3>
 <p>Prompt: Add a sample inventory appropriate for your chosen store to the application. You should have five parts and five products in your sample inventory and should not overwrite existing data in the database.</p>
+<hr>
 <ul>
     <li>Modified 'BootStrapData.java'
         <ul>
@@ -132,11 +135,34 @@
         </ul>
     </li>
 </ul>
-
+<hr>
 <h3>Part F: "Buy Now" Button</h3>
+<p>Prompt:  Add a “Buy Now” button to your product list. Your “Buy Now” button must meet each of the following parameters:</p>
+<ul><li>The “Buy Now” button must be next to the buttons that update and delete products.</li>
+<li>The button should decrement the inventory of that product by one. It should not affect the inventory of any of the associated parts.</li>
+<li>Display a message that indicates the success or failure of a purchase.</li>
+</ul>
+<hr>
 <ul>
-    <li>File name, line numbers
-        <ul><li>Changes changes</li></ul>
+    <li>Modified 'mainscreen.html'
+        <ul><li>line 85, added 'Buy Button', and used the thymeleaf 'th:href' attribute to create an http Get request addressed to '/buyproduct' while taking a product id as a parameter</li></ul>
+    </li><br/>
+    <li>Modified 'AddProductController.java'
+    <ul>
+    <li>lines 125-140, created a 'buyProduct' method annotated with 'GetMapping' and the address '/buyproduct'. Used 'ProductService' class to access and modify the product with the id matching the one sent as a parameter. product was located using 'findById', then the inventory was decremented by 1 using 'getInv' and 'setInv' methods, if the decrement was impossible due to out of stock the user is sent to the'failurebuyproduct' page, otherwise they are sent to the 'confirmationbuyproduct' page</li>
+    </ul>
+    </li><br/>
+    <li>Created 'failurebuyproduct.html'
+    <ul>
+    <li>all lines, formatted page using html and populated it with appropriate message</li>
+    <li>line 21, added link back to 'mainscreen'</li>
+    </ul>
+    </li><br/>
+    <li>Created 'confirmationbuyproduct.html'
+    <ul>
+    <li>all lines, formatted page using html and populated it with appropriate message</li>
+    <li>line 20, added link back to 'mainscreen'</li>
+    </ul>
     </li>
 </ul>
 
