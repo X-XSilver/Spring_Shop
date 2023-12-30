@@ -31,6 +31,11 @@ public class AddInhousePartController{
 
     @GetMapping("/showFormAddInPart")
     public String showFormAddInhousePart(Model theModel){
+
+        theModel.addAttribute("minMaxCheck", true);
+        theModel.addAttribute("minRangeCheck", true);
+        theModel.addAttribute("maxRangeCheck", true);
+
         InhousePart inhousepart=new InhousePart();
         theModel.addAttribute("inhousepart",inhousepart);
         return "InhousePartForm";
@@ -42,9 +47,28 @@ public class AddInhousePartController{
         if(theBindingResult.hasErrors()){
             return "InhousePartForm";
         }
+        else if (part.getMinInv() > part.getMaxInv())
+        {
+            theModel.addAttribute("minMaxCheck", false);
+            theModel.addAttribute("minRangeCheck", true);
+            theModel.addAttribute("maxRangeCheck", true);
+
+            return "InhousePartForm";
+        }
         else if (part.getInv() > part.getMaxInv() || part.getInv() < part.getMinInv())
         {
-            //theModel.addAttribute("rangeCheck", false);
+            if(part.getInv() > part.getMaxInv())
+            {
+                theModel.addAttribute("minMaxCheck", true);
+                theModel.addAttribute("minRangeCheck", true);
+                theModel.addAttribute("maxRangeCheck", false);
+            }
+            else
+            {
+                theModel.addAttribute("minMaxCheck", true);
+                theModel.addAttribute("minRangeCheck", false);
+                theModel.addAttribute("maxRangeCheck", true);
+            }
             return "InhousePartForm";
         }
         else{

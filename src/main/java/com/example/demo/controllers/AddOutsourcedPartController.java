@@ -32,6 +32,11 @@ public class AddOutsourcedPartController {
 
     @GetMapping("/showFormAddOutPart")
     public String showFormAddOutsourcedPart(Model theModel){
+
+        theModel.addAttribute("minMaxCheck", true);
+        theModel.addAttribute("minRangeCheck", true);
+        theModel.addAttribute("maxRangeCheck", true);
+
         Part part=new OutsourcedPart();
         theModel.addAttribute("outsourcedpart",part);
         return "OutsourcedPartForm";
@@ -43,9 +48,29 @@ public class AddOutsourcedPartController {
         if(bindingResult.hasErrors()){
             return "OutsourcedPartForm";
         }
+        else if (part.getMinInv() > part.getMaxInv())
+        {
+            theModel.addAttribute("minMaxCheck", false);
+            theModel.addAttribute("minRangeCheck", true);
+            theModel.addAttribute("maxRangeCheck", true);
+
+            return "OutsourcedPartForm";
+        }
         else if (part.getInv() > part.getMaxInv() || part.getInv() < part.getMinInv())
         {
-            //theModel.addAttribute("rangeCheck", false);
+            if(part.getInv() > part.getMaxInv())
+            {
+                theModel.addAttribute("minMaxCheck", true);
+                theModel.addAttribute("minRangeCheck", true);
+                theModel.addAttribute("maxRangeCheck", false);
+            }
+            else
+            {
+                theModel.addAttribute("minMaxCheck", true);
+                theModel.addAttribute("minRangeCheck", false);
+                theModel.addAttribute("maxRangeCheck", true);
+            }
+
             return "OutsourcedPartForm";
         }
         else{

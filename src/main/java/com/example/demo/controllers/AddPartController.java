@@ -29,7 +29,9 @@ public class AddPartController {
     @GetMapping("/showPartFormForUpdate")
     public String showPartFormForUpdate(@RequestParam("partID") int theId,Model theModel){
 
-        //theModel.addAttribute("rangeCheck", true);
+        theModel.addAttribute("minMaxCheck", true);
+        theModel.addAttribute("minRangeCheck", true);
+        theModel.addAttribute("maxRangeCheck", true);
 
         PartService repo=context.getBean(PartServiceImpl.class);
         OutsourcedPartService outsourcedrepo=context.getBean(OutsourcedPartServiceImpl.class);

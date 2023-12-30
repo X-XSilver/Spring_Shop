@@ -20,7 +20,8 @@
 
 <p><input type="text" path="inv" th:field="*{inv}" placeholder="Inventory" class="form-control mb-4 col-4"/></p>
     <p th:if="${#fields.hasErrors('inv')}" th:errors="*{inv}">Inventory Error</p>
-    <!--<p th:if="${!rangeCheck}">Inventory must be within Max and Min Inventory values</p>-->
+    <p th:if="${!minRangeCheck}">Inventory must be at or above Minimum Inventory value</p>
+    <p th:if="${!maxRangeCheck}">Inventory must be at or below Maximum Inventory value</p>
 
     <p><input type="text" path="minInv" th:field="*{minInv}" placeholder="Minimum Inventory" class="form-control mb-4 col-4"/></p>
     <p th:if="${#fields.hasErrors('minInv')}" th:errors="*{minInv}">Minimum Inventory Error</p>
@@ -34,6 +35,7 @@
 </form>
 <p><errors path="price" cssClass="error"/><p>
 
+<p th:if="${!minMaxCheck}">Minimum Inventory must be less than Maximum Inventory</p>
 <a href="http://localhost:8080/">Link
     to Main Screen</a>
 </body>
