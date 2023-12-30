@@ -179,7 +179,6 @@
 <ul>
     <li>Modified 'Part.java'
         <ul>
-        <li>line 21, changed the 'name' parameter taken by the 'Table' annotation in order to rename the file the persistent staorage is saved to</li>
         <li>lines 31-34, added fields 'minInv' and 'maxInv' along with the validation annotation 'Min' for logical real world values for these fields</li>
         <li>lines 43, 47-48, 51, 56-57, added the new 'minInv' and 'maxinv' fields to the class constructors, and used the 'this' operator to assign them properly</li>
         <li>lines 92-98, created getter and setter methods for the new fields 'minInv' and 'maxInv'</li>
@@ -188,6 +187,11 @@
     <li>Modified 'BootStrapData.java'
         <ul>
         <li>lines 52-53, 63-64, 74-75, 85-86, 96-97, added calls to 'setMinInv' and 'setMaxInv' for each part in the stock inventory in order to have starter values for those fields</li>
+        </ul>
+    </li><br/>
+    <li>Modified 'application.properties'
+        <ul>
+        <li>line 6, renamed the h2 database file</li>
         </ul>
     </li><br/>
     <li>Modified 'InhousePartForm.html'
@@ -213,11 +217,59 @@
         </ul>
     </li>
 </ul>
-
+<hr>
 <h3>Part H: Inventory Validation</h3>
+<p>Prompt:  Add validation for between or at the maximum and minimum fields. The validation must include the following:</p>
 <ul>
-    <li>File name, line numbers
-        <ul><li>Changes changes</li></ul>
+<li>Display error messages for low inventory when adding and updating parts if the inventory is less than the minimum number of parts.</li>
+<li>Display error messages for low inventory when adding and updating products lowers the part inventory below the minimum.</li>
+<li>Display error messages when adding and updating parts if the inventory is greater than the maximum.</li>
+</ul>
+<hr>
+<ul>
+    <li>Modified 'AddPartController'
+        <ul><li>lines 32-34, added boolean two attributes to the MVC Model to check weather 'inv' field value is between or equal to the 'maxInv' and 'minInv' field values, added a third boolean attribute to check weather the 'minInv' field is less than or equal to the 'maxInv' field, all true by default</li></ul>
+    </li><br/>
+    <li>Modified 'AddInhousePartController'
+        <ul>
+        <li>lines 35-37, carried over the 3 MVC boolean attributes, assumed true</li>
+        <li>lines 50-57, added else if statement to toggle the 'minMaxCheck' boolean based on 'minInv' and 'maxInv' fields, while carrying over the other boolean attributes, kept the user on 'InhousePartForm' page</li>
+        <li>lines 60-71, added if-else statement to toggle the 'minRangeCheck' and 'maxRangeCheck' attributes based on the values of the 'inv', 'minInv', and 'maxInv' fields,carried over the third boolean attribute, kept the user on 'InhousePartForm'</li>
+        </ul>
+    </li><br/>
+    <li>Modified 'AddOutsourcedPartController'
+    <ul>
+        <li>lines 36-38, carried over the 3 MVC boolean attributes, assumed true</li>
+        <li>lines 51-58, added else if statement to toggle the 'minMaxCheck' boolean based on 'minInv' and 'maxInv' fields, while carrying over the other boolean attributes, kept the user on 'InhousePartForm' page</li>
+        <li>lines 61-72, added if-else statement to toggle the 'minRangeCheck' and 'maxRangeCheck' attributes based on the values of the 'inv', 'minInv', and 'maxInv' fields,carried over the third boolean attribute, kept the user on 'InhousePartForm'</li>
+        </ul>
+    </li><br/>
+    <li>Modified 'InhousePartForm.html'
+        <ul>
+        <li>lines 23-24, used the thymeleaf 'th:if' attribute to determine when to display logical error message for when 'inv' is less than 'minInv' or 'inv' greater than 'minInv'</li>
+        <li>line 38, used thymeleaf 'th:if' attribute to determine when to display logical error message for when 'minInv' is less than 'maxInv'</li>
+        </ul>
+    </li><br/>
+    <li>Modified 'OutsourcedPartForm.html'
+        <ul>
+        <li>lines 24-25, used the thymeleaf 'th:if' attribute to determine when to display logical error message for when 'inv' is less than 'minInv' or 'inv' greater than 'minInv'</li>
+        <li>line 38, used thymeleaf 'th:if' attribute to determine when to display logical error message for when 'minInv' is less than 'maxInv'</li>
+        </ul>
+    </li><br/>
+    <li>Modified 'AddProductController.java'
+        <ul>
+        <li>line 38, added a 'lowInventory' attribute to the MVC model, false by default</li>
+        <li>line 57, carried over the 'lowInventory' attribute, since this method lands on the 'productForm' page, set to false</li>
+        <li>line 99, carried over the 'lowInventory' attribute, since this method lands on the 'productForm' page, set to false</li>
+        <li>line 161-172, added else if statement that makes sure the part added to the product has suffiecient inventory to be added, if it doesn't the 'lowInventory' model attribute is set to true, and the user is kept at the 'prodcutForm' page</li>
+        <li>line 175, carried over the 'lowInventory' attribute, since this method lands on the 'productForm' page, set to false</li>
+        <li>line 196, carried over the 'lowInventory' attribute, since this method lands on the 'productForm' page, set to false</li>
+        </ul>
+    </li>
+    <li>Modified 'productForm.html'
+        <ul>
+        <li>line 31, used the thymeleaf 'th:if' attribute to display a logical error message when too many parts would be required to produce a batch of products, and the inventory would be drained beyond the 'minInv' field</li>
+        </ul>
     </li>
 </ul>
 
