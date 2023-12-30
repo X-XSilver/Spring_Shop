@@ -289,7 +289,7 @@
 <p>Prompt: Remove the class files for any unused validators in order to clean your code.</p>
 <hr>
 <ul>
-    <li>File name, line numbers
-        <ul><li>Changes changes</li></ul>
+    <li>Deleted 'DeletePartValidator.java'
+        <ul><li>this was the only validator to have 0 usages</li></ul>
     </li>
 </ul>
