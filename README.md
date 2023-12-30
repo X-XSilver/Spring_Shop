@@ -272,15 +272,22 @@
         </ul>
     </li>
 </ul>
-
+<hr>
 <h3>Part I: Unit Tests</h3>
+<p>Prompt: Add at least two unit tests for the maximum and minimum fields to the PartTest class in the test package.</p>
+<hr>
 <ul>
-    <li>File name, line numbers
-        <ul><li>Changes changes</li></ul>
+    <li>Modified 'PartTest.java'
+        <ul>
+        <li>lines 104-120, created unit tests for the getter and setter methods of the 'minInv' field</li>
+        <li>lines 122-138, created unit tests for the getter and setter methods of the 'maxInv' field</li>
+        </ul>
     </li>
 </ul>
-
+<hr>
 <h3>Part J: Clean Up</h3>
+<p>Prompt: Remove the class files for any unused validators in order to clean your code.</p>
+<hr>
 <ul>
     <li>File name, line numbers
         <ul><li>Changes changes</li></ul>
