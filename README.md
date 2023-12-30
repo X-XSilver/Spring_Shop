@@ -114,7 +114,7 @@
     <li>Modified 'BootStrapData.java'
         <ul>
         <li>lines 34-40, added an 'InhousePartRepository' object into the class as a private final field, then added a 'InhousePartRepository' parameter to the class's cunstructor, then assigned it to the field using the 'this' operator</li>
-        <li>lines 46-110, used the private repository fields ('inhousePartRepository', 'outsourcedPartRepository', and 'productRepository') combined with the imported domain classes ('InhousePart', 'OutsourcedPart', and 'Product') to create and store inhouse parts, outsourced parts, and products in the data base. Used a 'findByName' method to search each repository for the objects in the sample inventory and make sure no duplicates are added when the application is run multiple times</li>
+        <li>lines 46-89 (5 parts) 92-110 (5 products), used the private repository fields ('inhousePartRepository', 'outsourcedPartRepository', and 'productRepository') combined with the imported domain classes ('InhousePart', 'OutsourcedPart', and 'Product') to create and store inhouse parts, outsourced parts, and products in the data base. Used a 'findByName' method to search each repository for the objects in the sample inventory and made sure no duplicates are added when the application is run multiple times</li>
         </ul>
     </li><br/>
     <li>Modified 'OutsourcedPartRepository.java'
